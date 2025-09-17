@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .glass-card {
+    @apply bg-card-background border border-card-border rounded-2xl shadow-glass backdrop-blur;
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .nav-link {
+    @apply px-4 py-2 rounded-lg text-text-primary font-semibold transition-all duration-300 hover:bg-accent hover:text-white hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50;
+  }
+  
+  .recommendation-box {
+    @apply mt-6 p-4 bg-blue-100 border-l-4 border-accent rounded-r-lg text-text-secondary;
+  }
+}

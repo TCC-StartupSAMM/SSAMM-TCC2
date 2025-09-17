@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementação - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold mb-2">
+          Função de Negócio: Implementação
+        </h2>
+        <p class="text-lg text-text-secondary">
+          Esta função foca nas práticas de codificação e nos processos de
+          construção que garantem que o software seja desenvolvido de forma
+          segura.
+        </p>
+
+        <div class="mt-12 space-y-8">
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 0: "Funciona? Sobe."
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> O único critério para que o
+              código seja integrado e implantado é a sua funcionalidade. A
+              verificação de segurança do código não é uma etapa sistemática do
+              processo de desenvolvimento. A equipe confia que os testes
+              funcionais são suficientes, ignorando vulnerabilidades que não
+              afetam a operação normal da aplicação, mas que podem ser
+              exploradas por um atacante.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Desenvolvimento focado exclusivamente em entregar
+                funcionalidades.
+              </li>
+              <li>
+                Ausência de ferramentas de análise de segurança no fluxo de
+                trabalho.
+              </li>
+              <li>
+                Compartilhamento de senhas e chaves de API em canais de
+                comunicação inseguros, como Slack ou e-mail.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <p class="text-text-secondary">
+              Não há benefícios reais de segurança. A velocidade percebida é
+              rapidamente ofuscada pelo risco de vulnerabilidades críticas
+              chegarem à produção.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>O principal critério para aprovar um
+                pull request é se ele "funciona"?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Não temos verificações sistemáticas
+                de segurança do código?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>É comum encontrarmos segredos (chaves
+                de API, senhas) no código-fonte ou em arquivos de configuração
+                versionados?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Implemente duas políticas de "tolerância zero" de impacto
+                imediato: 1) Nenhum segredo deve ser armazenado no código-fonte.
+                2) Nenhuma senha deve ser compartilhada em texto claro. Adote um
+                cofre de senhas para a equipe e uma solução de gerenciamento de
+                segredos para a aplicação.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 1: Gestão de Dependências e Segredos
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A equipe toma as primeiras
+              e mais críticas medidas de higiene de código: gerenciar segredos e
+              dependências. Reconhece-se que as duas maiores fontes de risco na
+              implementação são as credenciais expostas e o uso de bibliotecas
+              de terceiros vulneráveis. Ferramentas e políticas simples são
+              adotadas para mitigar esses riscos.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Adotar um cofre de senhas para a equipe, como Passbolt, Psono ou
+                Vaultwarden.
+              </li>
+              <li>
+                Utilizar uma solução de gerenciamento de segredos para a
+                aplicação, como Infisical ou Doppler, para que as credenciais
+                não fiquem no código.
+              </li>
+              <li>
+                Ativar ferramentas de análise de dependências, como o Dependabot
+                do GitHub, para identificar bibliotecas vulneráveis.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Redução Drástica de Risco:</strong> Mitiga a
+                vulnerabilidade mais citada e temida por desenvolvedores: o
+                vazamento de credenciais.
+              </li>
+              <li>
+                <strong>Visibilidade:</strong> Traz à tona os riscos na cadeia
+                de suprimentos de software (dependências).
+              </li>
+              <li>
+                <strong>Boas Práticas:</strong> Estabelece uma base fundamental
+                para práticas de desenvolvimento seguro.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>A equipe utiliza um cofre de senhas
+                compartilhado?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>A aplicação carrega seus segredos de
+                um serviço externo em vez de arquivos de configuração no
+                repositório?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Temos uma política de tolerância zero
+                para segredos no código-fonte?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Automatize a verificação de segurança integrando-a ao pipeline
+                de CI/CD. Cada pull request deve ser automaticamente escaneado
+                por ferramentas de Análise de Composição de Software (SCA) e
+                Teste de Segurança de Aplicação Estática (SAST).
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 2: Pipeline Seguro (CI/CD)
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A verificação de segurança
+              deixa de ser uma ação manual e passa a ser uma etapa automatizada
+              e obrigatória no pipeline de integração contínua. A segurança é
+              "deslocada para a esquerda" (Shift-Left), fornecendo feedback
+              rápido aos desenvolvedores sobre vulnerabilidades no código e nas
+              dependências a cada pull request, antes que o código chegue à
+              branch principal.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Integrar uma ferramenta de SCA (como Snyk ou OWASP
+                Dependency-Check) no pipeline de CI/CD para verificar
+                dependências em cada build.
+              </li>
+              <li>
+                Integrar uma ferramenta de SAST (como SonarQube, Semgrep ou
+                Bandit) para analisar o código-fonte em busca de padrões de
+                vulnerabilidade.
+              </li>
+              <li>
+                Configurar o pipeline para alertar ou até mesmo falhar o build
+                caso vulnerabilidades de alta gravidade sejam encontradas.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Feedback Rápido:</strong> Os desenvolvedores são
+                notificados sobre problemas de segurança em seu próprio
+                ambiente, quando o contexto ainda está fresco.
+              </li>
+              <li>
+                <strong>Prevenção Contínua:</strong> Age como um "guarda"
+                (guardrail), prevenindo que vulnerabilidades conhecidas sejam
+                introduzidas na base de código.
+              </li>
+              <li>
+                <strong>Escalabilidade:</strong> A segurança escala com o número
+                de desenvolvedores e a frequência de deploys, sem criar um
+                gargalo manual.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Nosso pipeline de CI/CD executa
+                automaticamente uma verificação de SCA em cada pull request?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Nosso pipeline executa
+                automaticamente uma verificação de SAST no código?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Os resultados dessas verificações são
+                visíveis para o desenvolvedor e para quem aprova o pull request?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Adote uma mentalidade de defesa proativa. Em vez de apenas
+                encontrar e corrigir bugs, utilize frameworks e bibliotecas que
+                eliminam classes inteiras de vulnerabilidades por padrão, como
+                usar ORMs para prevenir SQL Injection.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 3: Defesa Proativa
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> Neste estágio, a equipe de
+              desenvolvimento não apenas corrige vulnerabilidades, mas também
+              escreve código que é inerentemente mais seguro. A escolha de
+              frameworks, bibliotecas e padrões de arquitetura é feita com a
+              segurança como um critério principal. O objetivo é tornar a
+              escrita de código seguro o caminho mais fácil e natural,
+              prevenindo vulnerabilidades em vez de apenas detectá-las.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Utilizar ORMS (Object-Relational Mappers) de forma consistente
+                para interagir com o banco de dados, mitigando a vasta maioria
+                das vulnerabilidades de SQL Injection.
+              </li>
+              <li>
+                Adotar frameworks web que oferecem proteção nativa contra
+                ataques comuns como Cross-Site Scripting (XSS) e Cross-Site
+                Request Forgery (CSRF).
+              </li>
+              <li>
+                Privilegiar o uso de bibliotecas que são mantidas ativamente e
+                têm um bom histórico de segurança.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Resiliência:</strong> O código é mais robusto e
+                resistente a classes inteiras de ataques.
+              </li>
+              <li>
+                <strong>Eficiência do Desenvolvedor:</strong> Reduz a carga
+                cognitiva sobre os desenvolvedores, que não precisam ser
+                especialistas em todos os tipos de ataque.
+              </li>
+              <li>
+                <strong>Segurança por Padrão:</strong> O caminho certo é o
+                caminho mais fácil, diminuindo a chance de erros humanos.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>O uso de ORMs para acesso a dados é a
+                norma em nossa aplicação?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Aproveitamos ao máximo os recursos de
+                segurança integrados dos frameworks que utilizamos?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>A segurança de uma biblioteca é um
+                fator considerado durante sua escolha?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                A equipe atingiu um alto grau de maturidade na implementação. O
+                foco agora é a melhoria contínua, pesquisando e aplicando
+                técnicas avançadas de codificação segura, como validação de
+                entrada rigorosa, tratamento de erros seguro e o princípio do
+                menor privilégio no nível do código.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

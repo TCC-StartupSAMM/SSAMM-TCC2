@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#1 Gestão de Segredos - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold">
+          Vulnerabilidade #1: Gestão de Segredos e Credenciais Comprometidas
+        </h2>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">O Risco</h3>
+          <p class="text-lg italic">
+            "Uma chave de API vazada no GitHub pode zerar seu crédito na AWS
+            antes do café da manhã."
+          </p>
+          <p>
+            Este não é um risco teórico; é a vulnerabilidade mais citada e
+            temida pelos desenvolvedores entrevistados, com relatos de prejuízos
+            financeiros reais de dezenas de milhares de dólares por uma única
+            chave de acesso exposta.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Cenário de Ataque Real</h3>
+          <p>
+            Um desenvolvedor, trabalhando em uma nova funcionalidade, comita
+            acidentalmente um arquivo <code>.env</code> ou um trecho de código
+            contendo uma chave de acesso da AWS com permissões amplas para um
+            repositório público no GitHub. Bots automatizados, que escaneiam o
+            GitHub em busca de segredos, detectam a chave em minutos. O atacante
+            usa a chave para provisionar dezenas de servidores de alta
+            performance para minerar criptomoedas, gerando uma conta de 30.000
+            USD para a startup antes que a equipe perceba o vazamento.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Defesas Pragmáticas</h3>
+          <ul class="space-y-4">
+            <li>
+              <strong>Nível 1 (Imediato - Cultura):</strong> Adote uma
+              ferramenta de cofre de senhas para a equipe. A política é simples:
+              nenhuma senha ou chave de API é compartilhada via Slack, e-mail ou
+              qualquer outro canal de texto claro.
+            </li>
+            <li>
+              <strong>Nível 2 (Prevenção - Código):</strong> Integre um scanner
+              de segredos no processo de desenvolvimento. A melhor abordagem é
+              usar um hook de pré-commit que impede o desenvolvedor de comitar
+              qualquer código que contenha algo que se pareça com um segredo.
+            </li>
+            <li>
+              <strong>Nível 3 (Centralização - Aplicação):</strong> Utilize uma
+              plataforma de gerenciamento de segredos para centralizar todas as
+              credenciais da aplicação. A aplicação, ao iniciar, busca os
+              segredos necessários diretamente da plataforma, em vez de lê-los
+              de arquivos de configuração locais.
+            </li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">
+            Checklist Rápido para Gestão de Segredos
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left mt-4">
+              <thead class="border-b-2 border-gray-300">
+                <tr>
+                  <th class="p-3 font-semibold">Verificação</th>
+                  <th class="p-3 font-semibold">Ação / Ferramenta</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    Segredos foram removidos do código-fonte (histórico do Git
+                    incluído)?
+                  </td>
+                  <td class="p-3">
+                    Use ferramentas como <code>git-secrets</code> para escanear
+                    o histórico.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    A equipe usa um cofre de senhas compartilhado?
+                  </td>
+                  <td class="p-3">Adote Passbolt, Psono ou Vaultwarden.</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    Há um scanner de segredos no pré-commit ou no pipeline de
+                    CI?
+                  </td>
+                  <td class="p-3">
+                    Integre <code>gitleaks</code> ou <code>whispers</code>.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    As credenciais da aplicação são gerenciadas centralmente?
+                  </td>
+                  <td class="p-3">Implemente Infisical ou HashiCorp Vault.</td>
+                </tr>
+                <tr>
+                  <td class="p-3">
+                    As chaves de acesso (ex: AWS IAM) seguem o princípio do
+                    menor privilégio?
+                  </td>
+                  <td class="p-3">
+                    Revise as permissões e restrinja-as ao mínimo necessário.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

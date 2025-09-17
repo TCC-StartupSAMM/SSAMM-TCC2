@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#3 Injeção (SQL) - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold">
+          Vulnerabilidade #3: Injeção (SQL Injection & Outras)
+        </h2>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">O Risco</h3>
+          <p>
+            Permitir que dados não confiáveis fornecidos por um usuário (através
+            de um formulário, um parâmetro de URL, etc.) sejam interpretados
+            como um comando pelo backend. É o equivalente a deixar um estranho
+            dar ordens diretamente ao seu banco de dados ou sistema operacional.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">
+            Cenário de Ataque (SQL Injection Clássico)
+          </h3>
+          <p>
+            Uma tela de login possui uma query SQL vulnerável como:
+            <code
+              >$sql = "SELECT * FROM users WHERE username = '" .
+              $_POST['username'] . "' AND password = '" . $_POST['password'] .
+              "'";</code
+            >. Um atacante, no campo de usuário, insere
+            <code>' OR '1'='1' --</code>. A query resultante se torna
+            <code
+              >SELECT * FROM users WHERE username = '' OR '1'='1'--' AND
+              password = '...'</code
+            >, o que sempre é verdadeiro, concedendo acesso ao sistema como o
+            primeiro usuário da tabela (geralmente, o administrador).
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Defesas Pragmáticas</h3>
+          <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded-r-lg">
+            <p class="font-bold text-red-700">
+              A Regra de Ouro: NUNCA construa queries SQL (ou qualquer outro
+              tipo de comando) através da concatenação de strings com dados do
+              usuário.
+            </p>
+          </div>
+
+          <h4 class="font-semibold text-lg mt-6">A Solução:</h4>
+          <ul class="space-y-4">
+            <li>
+              <strong>Use Prepared Statements (Queries Parametrizadas):</strong>
+              Esta técnica separa a instrução do comando dos dados. O banco de
+              dados compila a instrução primeiro e depois recebe os dados,
+              tratando-os sempre como valores, nunca como parte do comando.
+            </li>
+            <li>
+              <strong>Use ORMS (Object-Relational Mappers):</strong> Frameworks
+              como Sequelize (Node.js), Django ORM (Python) ou ActiveRecord
+              (Ruby on Rails) lidam com a construção de queries de forma segura
+              por padrão, abstraindo o desenvolvedor da necessidade de escrever
+              SQL manualmente.
+            </li>
+          </ul>
+
+          <h4 class="font-semibold text-lg mt-6">
+            Exemplo de Código (Python com psycopg2):
+          </h4>
+          <p><strong>Vulnerável (NÃO FAÇA ISSO):</strong></p>
+          <pre><code class="language-python"># Python
+cursor.execute(f"SELECT * FROM users WHERE username = '{username}'")</code></pre>
+
+          <p><strong>Seguro (FAÇA ISSO):</strong></p>
+          <pre><code class="language-python"># Python
+cursor.execute("SELECT * FROM users WHERE username = %s", (username,))</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

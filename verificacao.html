@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificação - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold mb-2">Função de Negócio: Verificação</h2>
+        <p class="text-lg text-text-secondary">
+          Verificação é o processo de testar ativamente o software em busca de
+          falhas de segurança antes e depois da implantação.
+        </p>
+
+        <div class="mt-12 space-y-8">
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 0: Testes Manuais Reativos ("O QA clicou e quebrou")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> As vulnerabilidades de
+              segurança são descobertas de forma acidental e não sistemática.
+              Geralmente, são encontradas pela equipe de QA durante testes
+              funcionais ou, no pior cenário, reportadas por usuários após o
+              produto já estar em produção. Não há um esforço direcionado para
+              encontrar falhas de segurança.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Realização de testes focados apenas no comportamento esperado da
+                aplicação.
+              </li>
+              <li>
+                Correção de vulnerabilidades apenas quando elas são encontradas
+                por acaso.
+              </li>
+              <li>
+                Ausência de qualquer ferramenta ou processo de teste de
+                segurança.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <p class="text-text-secondary">
+              Nenhum. Este nível expõe a empresa a riscos significativos, pois a
+              descoberta de vulnerabilidades depende da sorte.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>A única forma como encontramos
+                vulnerabilidades é através de testes funcionais ou relatos de
+                usuários?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Não temos nenhuma ferramenta dedicada
+                a testes de segurança?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Comece a utilizar os resultados das ferramentas de SAST e SCA
+                introduzidas no Nível 2 de Implementação. Garanta que a equipe
+                revise os alertas gerados e integre essas ferramentas no
+                ambiente de desenvolvimento local (IDE) para feedback em tempo
+                real.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 1: Análise de Código Automatizada (SAST/SCA)
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A equipe passa a tratar os
+              resultados das ferramentas de SAST e SCA como uma parte formal do
+              processo de verificação. A automação só é eficaz se os alertas
+              gerados forem tratados. O feedback é antecipado, com ferramentas
+              integradas diretamente ao editor de código do programador (IDE),
+              como o SonarLint, que apontam problemas enquanto o código ainda
+              está sendo escrito.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Revisar e triar os alertas gerados pelas ferramentas de SAST e
+                SCA no pipeline.
+              </li>
+              <li>
+                Integrar plugins de segurança, como o SonarLint, nas IDEs da
+                equipe para fornecer feedback em tempo real.
+              </li>
+              <li>
+                Criar tickets para corrigir as vulnerabilidades encontradas,
+                priorizando as mais críticas.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Feedback Imediato:</strong> Os desenvolvedores podem
+                corrigir falhas de segurança no momento em que as escrevem.
+              </li>
+              <li>
+                <strong>Prevenção:</strong> Impede que vulnerabilidades óbvias
+                cheguem à fase de revisão de código.
+              </li>
+              <li>
+                <strong>Eficiência:</strong> Tratar alertas de forma sistemática
+                garante que o investimento em automação gere valor.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Existe um processo para revisar os
+                alertas das ferramentas de SAST/SCA?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Os desenvolvedores usam plugins de
+                segurança em suas IDEs?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Os alertas gerados são transformados
+                em ações corretivas?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Implemente Testes de Segurança de Aplicação Dinâmica (DAST).
+                Execute um scanner DAST, como o OWASP ZAP, de forma automatizada
+                contra o ambiente de homologação (staging) como parte do
+                pipeline de entrega.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 2: Testes Dinâmicos (DAST)
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A verificação evolui de
+              analisar o código estático para testar a aplicação em execução. Um
+              scanner DAST é integrado ao pipeline para simular ataques externos
+              contra a aplicação em um ambiente de homologação, identificando
+              vulnerabilidades que só são aparentes em tempo de execução, como
+              problemas de configuração de servidor e falhas na lógica de
+              negócio.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Configurar um scanner DAST, como o OWASP ZAP ou Nikto, no
+                pipeline de CI/CD.
+              </li>
+              <li>
+                Executar varreduras automatizadas contra o ambiente de staging
+                após cada deploy bem-sucedido.
+              </li>
+              <li>
+                Analisar os relatórios do DAST para identificar e corrigir
+                vulnerabilidades.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Visão do Atacante:</strong> Testa a aplicação da mesma
+                forma que um invasor faria, a partir do exterior.
+              </li>
+              <li>
+                <strong>Cobertura Ampla:</strong> Encontra vulnerabilidades de
+                configuração e de tempo de execução que o SAST não consegue
+                detectar.
+              </li>
+              <li>
+                <strong>Automação:</strong> Integra testes de segurança
+                complexos no fluxo de trabalho de forma contínua.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Temos um scanner DAST executando
+                automaticamente contra nosso ambiente de staging?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Os resultados do DAST são revisados
+                pela equipe?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Usamos ferramentas padrão da
+                indústria como o OWASP ZAP?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Para aplicações que lidam com dados altamente sensíveis,
+                contrate um teste de penetração (pentest) com uma empresa
+                especializada para obter uma análise humana e aprofundada.
+                Alternativamente, estabeleça uma Política de Divulgação de
+                Vulnerabilidades (VDP) para criar um canal seguro para que
+                pesquisadores de segurança reportem falhas.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 3: Testes de Penetração e Bug Bounty
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A verificação transcende a
+              automação e incorpora a inteligência e a criatividade humana. A
+              startup contrata especialistas externos (pentesters) para realizar
+              uma análise aprofundada e simulada de ataques reais.
+              Adicionalmente, pode estabelecer uma política formal (VDP) ou um
+              programa de recompensas (Bug Bounty) para incentivar a comunidade
+              de segurança a encontrar e reportar falhas de forma ética e
+              segura.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Contratar uma empresa especializada para realizar um pentest
+                anual ou antes de grandes lançamentos.
+              </li>
+              <li>
+                Criar uma página de "Política de Divulgação de Vulnerabilidades"
+                (VDP) com um contato de segurança claro.
+              </li>
+              <li>
+                Analisar e corrigir as vulnerabilidades reportadas por
+                especialistas externos.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Profundidade:</strong> Pentesters podem encontrar
+                vulnerabilidades complexas de lógica de negócio que ferramentas
+                automatizadas não detectam.
+              </li>
+              <li>
+                <strong>Validação:</strong> Um relatório de pentest positivo
+                serve como uma forte validação da postura de segurança para
+                clientes e investidores.
+              </li>
+              <li>
+                <strong>Vigilância Contínua:</strong> Um VDP ou Bug Bounty
+                transforma a comunidade de segurança em um conjunto de "olhos"
+                extras sobre o produto.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Já contratamos um teste de penetração
+                de uma empresa externa?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Temos um canal claro e seguro para
+                que pesquisadores de segurança nos reportem vulnerabilidades
+                (VDP)?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Existe um processo para tratar os
+                relatórios recebidos?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Neste estágio, a verificação é robusta. A melhoria contínua
+                envolve a realização de testes de penetração mais focados (ex:
+                em uma nova API crítica), a expansão do programa de VDP para um
+                Bug Bounty privado ou público, e a realização de exercícios de
+                "Red Team" para simular ataques de adversários de forma mais
+                realista.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

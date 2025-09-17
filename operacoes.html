@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operações - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold mb-2">Função de Negócio: Operações</h2>
+        <p class="text-lg text-text-secondary">
+          A segurança não termina no deploy. Operações se concentram em
+          proteger, monitorar e responder a ameaças no ambiente de produção.
+        </p>
+
+        <div class="mt-12 space-y-8">
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 0: Sem Visibilidade ("Está no ar? Ótimo.")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> Uma vez que a aplicação
+              está em produção, ela se torna uma caixa-preta. A equipe só reage
+              se o sistema cair ou apresentar um erro funcional grave. Não há
+              monitoramento de segurança ativo, nem logs centralizados para
+              investigar um possível incidente. Se um ataque ocorrer, a equipe
+              não terá como saber o que aconteceu, quando ou como.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Monitoramento focado apenas na disponibilidade e performance
+                (uptime).
+              </li>
+              <li>Ausência de logs de eventos de segurança.</li>
+              <li>
+                Servidores e serviços em nuvem são implantados com configurações
+                padrão, sem hardening.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <p class="text-text-secondary">
+              Nenhum. Este é um nível de risco extremamente alto, pois a equipe
+              está "voando às cegas".
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Só reagimos a problemas em produção
+                quando o sistema cai?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Não temos logs centralizados para
+                eventos de segurança (ex: tentativas de login)?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Não temos um processo para fortalecer
+                as configurações de nossos servidores?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Implemente logging estruturado para eventos de segurança
+                críticos (logins, falhas de login, alterações de permissão).
+                Comece a aplicar guias de hardening, como os CIS Benchmarks,
+                para fortalecer a configuração de seus servidores e serviços em
+                nuvem.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 1: Logging e Hardening Básico
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A equipe dá os primeiros
+              passos para ganhar visibilidade e fortalecer o ambiente de
+              produção. A aplicação é configurada para gerar logs estruturados
+              para eventos de segurança importantes, e as configurações padrão
+              dos servidores e serviços em nuvem são revisadas e fortalecidas
+              (hardening) com base em guias de boas práticas da indústria.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Garantir que a aplicação gere logs para logins bem-sucedidos e
+                falhos, alterações de permissão, etc.
+              </li>
+              <li>
+                Centralizar esses logs em uma plataforma como o AWS CloudWatch.
+              </li>
+              <li>
+                Consultar os CIS Benchmarks para aplicar configurações seguras
+                em servidores e serviços na nuvem.
+              </li>
+              <li>
+                Usar ferramentas como OpenSCAP para auditar a conformidade das
+                configurações.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Visibilidade Mínima:</strong> Em caso de incidente,
+                existem logs para iniciar uma investigação.
+              </li>
+              <li>
+                <strong>Redução da Superfície de Ataque:</strong> O hardening
+                desativa serviços desnecessários e corrige configurações
+                inseguras, tornando mais difícil para um invasor encontrar um
+                ponto de entrada.
+              </li>
+              <li>
+                <strong>Base para o Futuro:</strong> Logs estruturados são a
+                matéria-prima para o monitoramento e alertas do próximo nível.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Nossa aplicação gera logs para
+                eventos de segurança críticos?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Seguimos algum guia de hardening
+                (como os CIS Benchmarks) para configurar nossos servidores?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Nossos logs de segurança estão
+                centralizados em um único local?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Evolua de uma análise pós-incidente para a detecção em tempo
+                real. Configure alertas automáticos para eventos de segurança
+                suspeitos com base nos logs que você agora coleta. Por exemplo,
+                "alertar se houver mais de 10 tentativas de login falhas do
+                mesmo IP em 5 minutos".
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 2: Monitoramento e Alertas
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A equipe passa de uma
+              postura reativa (análise de logs após um fato) para uma postura
+              proativa, com detecção em tempo real. Alertas automáticos são
+              configurados para notificar a equipe sobre atividades suspeitas no
+              momento em que ocorrem, permitindo uma resposta muito mais rápida
+              para conter possíveis ataques.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Configurar alertas para eventos como múltiplas tentativas de
+                login falhas, escalonamento de privilégios ou uso de APIs de
+                forma anômala.
+              </li>
+              <li>
+                Implementar uma solução de SIEM (Security Information and Event
+                Management) open-source como o Wazuh para correlacionar eventos
+                e detectar intrusões.
+              </li>
+              <li>
+                Definir um canal de comunicação claro (ex: um canal específico
+                no Slack) para onde os alertas de segurança são enviados.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Detecção Rápida:</strong> Reduz o tempo entre o início
+                de um ataque e sua detecção.
+              </li>
+              <li>
+                <strong>Resposta Proativa:</strong> Permite que a equipe aja
+                para mitigar um ataque em andamento, em vez de apenas limpar os
+                danos depois.
+              </li>
+              <li>
+                <strong>Inteligência de Segurança:</strong> A análise de alertas
+                ajuda a entender os tipos de ameaças que a aplicação enfrenta.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Temos alertas automáticos para
+                atividades de segurança suspeitas em produção?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Existe um processo definido para
+                quando um alerta é disparado?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Usamos alguma ferramenta para
+                monitoramento e detecção de intrusão, como o Wazuh?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Agora que você pode detectar um incidente, você precisa saber o
+                que fazer a respeito. Crie um Plano de Resposta a Incidentes
+                simples e acionável. Ele não precisa ser um documento longo; uma
+                única página é suficiente para começar.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 3: Resposta a Incidentes
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A equipe está preparada
+              para o "pior dia". Existe um plano claro, simples e acionável que
+              define exatamente o que fazer em caso de um incidente de
+              segurança. Este plano elimina o caos e a adivinhação em um momento
+              de crise, garantindo uma resposta coordenada e eficaz para conter
+              o dano, erradicar a ameaça e se recuperar o mais rápido possível.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Criar um documento de uma página que responde a perguntas
+                críticas: Quem é o contato principal em caso de incidente? Quem
+                precisa ser comunicado (equipe, liderança, clientes)? Quais são
+                os 3 primeiros passos para conter o dano?.
+              </li>
+              <li>
+                Manter uma lista de contatos de emergência (incluindo suporte do
+                provedor de nuvem).
+              </li>
+              <li>
+                Realizar simulações ou "drills" de incidentes para testar o
+                plano e familiarizar a equipe com ele.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Coordenação:</strong> Garante que todos saibam seu papel
+                durante uma crise.
+              </li>
+              <li>
+                <strong>Redução de Danos:</strong> Uma resposta rápida e
+                organizada pode diminuir drasticamente o impacto financeiro e de
+                reputação de uma violação.
+              </li>
+              <li>
+                <strong>Confiança:</strong> Demonstra maturidade e devida
+                diligência para clientes e investidores, mostrando que a startup
+                leva a sério a proteção de seus dados.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Temos um Plano de Resposta a
+                Incidentes escrito e acessível?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>O plano define claramente quem
+                contatar e quem comunicar?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>O plano lista os passos iniciais e
+                imediatos a serem tomados?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Com um plano em vigor, o foco se torna a melhoria contínua. Após
+                qualquer incidente real (ou simulação), conduza uma análise
+                "post-mortem" para identificar lições aprendidas e atualizar o
+                plano. Explore a automação de certas etapas da resposta a
+                incidentes (SOAR) para acelerar ainda mais a contenção de
+                ameaças.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

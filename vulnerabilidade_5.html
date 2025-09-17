@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#5 Quebra de Controle de Acesso - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold">
+          Vulnerabilidade #5: Quebra de Controle de Acesso (Broken Access
+          Control)
+        </h2>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">O Risco</h3>
+          <p class="text-lg italic">
+            "Quando um usuário comum descobre que pode agir como administrador
+            apenas mudando um número na URL."
+          </p>
+          <p>
+            Esta é a vulnerabilidade número um no OWASP Top 10 2021 e reflete a
+            falha em garantir que os usuários só possam agir dentro das
+            permissões que lhes foram concedidas.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">
+            Cenário de Ataque (IDOR - Insecure Direct Object Reference)
+          </h3>
+          <p>
+            Um usuário está logado em um portal de e-commerce e acessa a página
+            de seu último pedido, cuja URL é
+            <code>https://meusite.com/pedidos/123</code>. Por curiosidade, ele
+            altera o número na URL para
+            <code>https://meusite.com/pedidos/124</code>. Se a aplicação não
+            verificar se o pedido 124 pertence ao usuário logado, ela exibirá os
+            detalhes do pedido de outro cliente, incluindo endereço, produtos
+            comprados e informações de pagamento.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Defesas Pragmáticas</h3>
+          <div class="bg-red-100 border-l-4 border-red-500 p-4 rounded-r-lg">
+            <p class="font-bold text-red-700">
+              A Regra de Ouro: Em cada endpoint que acessa ou modifica um
+              recurso, a lógica deve sempre verificar duas coisas: 1) O usuário
+              está <strong>autenticado</strong> (sabemos quem ele é)? 2) O
+              usuário está <strong>autorizado</strong> (ele tem permissão para
+              acessar <em>este</em> recurso específico)? A falha geralmente
+              ocorre na segunda verificação.
+            </p>
+          </div>
+
+          <h4 class="font-semibold text-lg mt-6">A Solução:</h4>
+          <ul class="space-y-4">
+            <li>
+              <strong>Centralize a Lógica de Autorização:</strong> Em vez de
+              espalhar checagens de permissão por todo o código, centralize-as
+              em um único local, como um middleware ou um decorador. Para cada
+              requisição, este middleware intercepta a chamada, identifica o
+              usuário e o recurso solicitado, e toma a decisão de permitir ou
+              negar o acesso.
+            </li>
+            <li>
+              <strong>Adote o Princípio de "Negar por Padrão":</strong> O acesso
+              a qualquer recurso deve ser negado por padrão. As permissões devem
+              ser concedidas explicitamente, em vez de presumir que o acesso é
+              permitido a menos que seja restrito.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

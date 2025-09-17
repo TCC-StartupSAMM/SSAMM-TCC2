@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold mb-2">Função de Negócio: Design</h2>
+        <p class="text-lg text-text-secondary">
+          As decisões de segurança mais impactantes e de menor custo são tomadas
+          antes da escrita da primeira linha de código.
+        </p>
+
+        <div class="mt-12 space-y-8">
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 0: Sem Planejamento ("Sai codando")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A equipe de desenvolvimento
+              recebe os requisitos funcionais e inicia a implementação
+              imediatamente. Não há uma pausa para considerar os riscos de
+              segurança inerentes à nova funcionalidade. A arquitetura é
+              puramente orientada pela funcionalidade, e as vulnerabilidades de
+              design são inevitavelmente introduzidas, tornando a correção
+              futura muito mais cara e complexa.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Codificar funcionalidades diretamente a partir de requisitos de
+                negócio.
+              </li>
+              <li>Não realizar análises de risco ou modelagem de ameaças.</li>
+              <li>
+                Problemas de segurança no design só são descobertos após a
+                implementação, geralmente por meio de um incidente.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <p class="text-text-secondary">
+              Nenhum benefício de segurança. A velocidade inicial é rapidamente
+              anulada pelo alto custo de retrabalho para corrigir falhas de
+              arquitetura.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Nossa equipe começa a codificar assim
+                que os requisitos funcionais são definidos?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Não temos um processo para discutir
+                os potenciais riscos de segurança de uma nova feature?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Introduza sessões curtas e informais de "whiteboard hacking" ou
+                modelagem de ameaças ad-hoc para novas funcionalidades críticas.
+                Use o mnemônico STRIDE para fazer perguntas simples como "Como
+                alguém poderia falsificar sua identidade aqui?" ou "Quais
+                informações sensíveis estamos expondo?".
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 1: Modelagem de Ameaças Ad-Hoc ("E se...?")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A equipe começa a fazer
+              perguntas sobre segurança proativamente durante a fase de design.
+              Em sessões curtas e focadas, geralmente em um quadro branco, os
+              desenvolvedores debatem os potenciais abusos de uma nova
+              funcionalidade. O objetivo não é ter todas as respostas, mas sim
+              levantar as questões certas e identificar os riscos mais óbvios
+              antes do desenvolvimento.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Realizar sessões de 30 minutos de "whiteboard hacking" para
+                features críticas.
+              </li>
+              <li>
+                Usar o mnemônico STRIDE (Spoofing, Tampering, etc.) para guiar a
+                discussão de riscos.
+              </li>
+              <li>
+                Documentar as ameaças identificadas e as possíveis mitigações
+                nos tickets de desenvolvimento.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Prevenção:</strong> Identifica falhas de design antes
+                que se tornem código, economizando tempo e dinheiro.
+              </li>
+              <li>
+                <strong>Conscientização:</strong> Ensina a equipe a pensar como
+                um atacante.
+              </li>
+              <li>
+                <strong>Baixo Custo:</strong> Requer apenas tempo da equipe, sem
+                a necessidade de ferramentas especializadas.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Para novas funcionalidades
+                importantes, paramos para discutir "o que pode dar errado" em
+                termos de segurança?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Já usamos um framework simples como o
+                STRIDE para guiar essa discussão?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>As ameaças identificadas são
+                documentadas de alguma forma?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Formalize essa prática adicionando "Requisitos de Segurança"
+                explícitos como critérios de aceite nos tickets de
+                desenvolvimento. Por exemplo, para uma história sobre login, um
+                critério seria "A API deve bloquear um usuário após 5 tentativas
+                de login falhas".
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 2: Requisitos de Segurança ("Precisamos garantir que...")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> As discussões sobre ameaças
+              são traduzidas em requisitos concretos e verificáveis. A segurança
+              se torna um critério de aceite explícito nas histórias de usuário,
+              assim como os requisitos funcionais. Isso garante que a segurança
+              seja tratada como uma parte essencial da funcionalidade, e não
+              como um extra opcional.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Adicionar uma seção de "Critérios de Aceite de Segurança" nos
+                templates de tickets do Jira, Trello, etc.
+              </li>
+              <li>
+                Escrever requisitos claros, como "A API deve validar que o
+                usuário autenticado só pode visualizar seus próprios dados".
+              </li>
+              <li>
+                Validar esses requisitos durante a revisão de código e os testes
+                de QA.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Clareza:</strong> Os desenvolvedores sabem exatamente
+                quais controles de segurança precisam implementar.
+              </li>
+              <li>
+                <strong>Rastreabilidade:</strong> Cria um vínculo claro entre o
+                risco identificado e a solução implementada.
+              </li>
+              <li>
+                <strong>Qualidade:</strong> Garante que a "feature" só é
+                considerada "pronta" quando está funcional e segura.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Nossos tickets de desenvolvimento
+                incluem critérios de aceite específicos para segurança?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Verificamos o cumprimento desses
+                critérios antes de considerar uma tarefa concluída?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Os requisitos de segurança são
+                específicos e testáveis?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Vá além de requisitos por ticket e construa uma "arquitetura
+                segura por padrão". Desenvolva templates de projetos,
+                bibliotecas internas ou "scaffolds" que já incorporem os
+                controles de segurança mais comuns, tornando o caminho seguro o
+                caminho mais fácil para o desenvolvedor.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 3: Arquitetura Segura por Padrão ("O jeito fácil é o jeito
+              seguro")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> Neste nível, a segurança é
+              incorporada na própria fundação da arquitetura de software. A
+              equipe investe na criação de componentes, bibliotecas e templates
+              reutilizáveis que já vêm com controles de segurança configurados
+              por padrão. Isso reduz a carga cognitiva sobre os desenvolvedores,
+              pois eles não precisam se lembrar de implementar controles de
+              segurança básicos a cada novo serviço ou funcionalidade; o jeito
+              certo já é o jeito padrão.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Criar um template para novos microsserviços que já inclua
+                logging estruturado, headers de segurança e tratamento de
+                exceções.
+              </li>
+              <li>
+                Desenvolver uma biblioteca interna para lidar com autenticação e
+                autorização de forma centralizada.
+              </li>
+              <li>
+                Manter um "catálogo de padrões de segurança" com exemplos de
+                código seguros para tarefas comuns.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Escalabilidade:</strong> A segurança escala junto com o
+                desenvolvimento, sem se tornar um gargalo.
+              </li>
+              <li>
+                <strong>Consistência:</strong> Garante que os controles de
+                segurança sejam aplicados de forma uniforme em toda a aplicação.
+              </li>
+              <li>
+                <strong>Eficiência:</strong> Libera os desenvolvedores para
+                focar na lógica de negócio, sabendo que a base é segura.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Temos templates de projeto ou
+                microsserviços que incluem configurações de segurança por
+                padrão?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Usamos bibliotecas internas para
+                centralizar lógicas críticas de segurança (ex: autorização)?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>O desenvolvedor precisa fazer um
+                esforço extra para não ser seguro?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Com uma arquitetura segura por padrão, o foco se volta para a
+                validação contínua e a pesquisa de ameaças emergentes. A equipe
+                pode explorar a criação de "padrões de abuso" específicos para o
+                seu negócio e integrá-los aos processos de design.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

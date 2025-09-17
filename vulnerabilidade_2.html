@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#2 Dependências Vulneráveis - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold">
+          Vulnerabilidade #2: A Cadeia de Suprimentos de Software (Dependências
+          Vulneráveis)
+        </h2>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">O Risco</h3>
+          <p class="text-lg italic">
+            "Seu aplicativo é composto por 70% a 90% de código de terceiros.
+            Você confia em cada um dos seus fornecedores de código?".
+          </p>
+          <p>
+            Cada <code>npm install</code> ou <code>pip install</code> é um ato
+            de confiança que importa não apenas a funcionalidade desejada, mas
+            também todas as vulnerabilidades contidas naquela biblioteca e em
+            suas dependências transitivas.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">
+            Cenário de Ataque (Log4Shell - CVE-2021-44228)
+          </h3>
+          <p>
+            Uma vulnerabilidade de execução remota de código foi descoberta em
+            uma biblioteca de logging Java onipresente, a Log4j. Milhões de
+            aplicações, de servidores de Minecraft a sistemas corporativos
+            complexos, tornaram-se instantaneamente vulneráveis. As equipes de
+            segurança entraram em uma corrida desesperada não para corrigir o
+            próprio código, mas para simplesmente descobrir se e onde estavam
+            usando a biblioteca vulnerável.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Defesas Pragmáticas</h3>
+          <p>
+            <strong>Ação:</strong> A defesa mais eficaz e de menor esforço
+            contra essa ameaça é a implementação de
+            <strong>SCA (Software Composition Analysis)</strong>. Ferramentas de
+            SCA escaneiam os arquivos de manifesto do projeto (como
+            <code>package-lock.json</code> ou <code>requirements.txt</code>),
+            identificam todas as dependências e as cruzam com bancos de dados de
+            vulnerabilidades conhecidas (CVEs).
+          </p>
+
+          <h4 class="font-semibold text-lg mt-6">Ferramentas:</h4>
+          <p>A barreira de entrada para SCA é praticamente zero.</p>
+          <ul class="space-y-4">
+            <li>
+              <strong>Dependabot do GitHub:</strong> É gratuito, nativo do
+              GitHub e ativado por padrão na maioria dos repositórios. Ele não
+              apenas alerta sobre dependências vulneráveis, mas também abre Pull
+              Requests automaticamente com a correção, exigindo apenas que um
+              desenvolvedor revise e aprove o merge.
+            </li>
+            <li>
+              <strong>Snyk:</strong> Oferece um plano gratuito robusto que se
+              integra diretamente ao repositório Git e ao pipeline de CI/CD,
+              fornecendo análises detalhadas e sugestões de correção.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

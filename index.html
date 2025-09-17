@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia de Cibersegurança para Startups</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans min-h-screen"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow container mx-auto p-6">
+      <section class="text-center pt-16 pb-20">
+        <h2 class="text-5xl font-bold mb-4">
+          Sua startup está construindo o futuro.
+        </h2>
+        <p class="text-3xl text-accent font-semibold mb-8">
+          Nós garantimos que ele seja seguro.
+        </p>
+        <p class="max-w-3xl mx-auto text-lg text-text-secondary mb-10">
+          No ecossistema de inovação, a velocidade é o ativo mais valioso. A
+          segurança cibernética pode parecer um freio, mas este guia foi
+          construído sobre uma premissa oposta: segurança, quando bem aplicada,
+          não é um freio, mas um acelerador. É a base que permite construir com
+          confiança, escalar sem implodir e transformar um passivo potencial em
+          uma vantagem competitiva decisiva.
+        </p>
+        <a
+          href="tabela_navegacao.html"
+          class="bg-accent text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-accent-hover transition-transform transform hover:scale-105"
+        >
+          Comece a jornada
+        </a>
+      </section>
+
+      <section class="my-16">
+        <div class="glass-card p-8 md:p-12">
+          <h3 class="text-3xl font-bold text-center mb-2">
+            O Dilema da Startup
+          </h3>
+          <p class="text-xl text-accent text-center font-semibold mb-8">
+            "Move Fast and Don't Break... Trust."
+          </p>
+          <div class="prose max-w-none lg:prose-xl text-text-secondary">
+            <p>
+              A realidade de uma startup é o conflito entre a velocidade de
+              entrega e a robustez do produto. A segurança, embora reconhecida
+              como importante, "acaba sendo sempre pensado de uma forma
+              secundária". Essa prática de adiar a segurança em favor de
+              entregas rápidas tem um nome:
+              <strong>Dívida de Segurança</strong>.
+            </p>
+            <p>
+              Assim como a dívida técnica, a dívida de segurança é uma decisão
+              de aceitar um risco futuro em troca de um benefício presente. O
+              problema é que essa dívida acumula juros compostos. Cada
+              vulnerabilidade não corrigida aumenta a superfície de ataque,
+              tornando a correção futura mais complexa e o custo de um incidente
+              potencialmente catastrófico. O objetivo deste guia não é eliminar
+              essa dívida — isso seria irrealista. O objetivo é ensinar as
+              equipes a "contrair dívidas inteligentes": reconhecer o risco,
+              documentar a decisão e planejar seu pagamento futuro.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-16">
+        <h3 class="text-center text-3xl font-bold mb-10">
+          Para Quem é Este Guia?
+        </h3>
+        <p
+          class="text-center text-lg text-text-secondary max-w-3xl mx-auto mb-12"
+        >
+          Este guia foi projetado para os construtores, os inovadores e os
+          líderes que operam sob as restrições do mundo real, sem o luxo de uma
+          equipe de segurança dedicada.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div class="glass-card p-6 text-center">
+            <h4 class="text-xl font-bold mb-2">Fundadores</h4>
+            <p class="text-text-secondary">
+              Que entendem que a confiança é a moeda mais valiosa. Este guia
+              fornece os argumentos e as ferramentas para construir um produto
+              seguro e demonstrar a devida diligência a clientes e investidores.
+            </p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <h4 class="text-xl font-bold mb-2">
+              Líderes Técnicos (Tech Leads/CTOs)
+            </h4>
+            <p class="text-text-secondary">
+              Que estão na linha de frente, equilibrando a velocidade de entrega
+              com a estabilidade da plataforma. Este guia oferece um framework
+              para priorizar ações e integrar a segurança no fluxo de trabalho
+              ágil.
+            </p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <h4 class="text-xl font-bold mb-2">Desenvolvedores</h4>
+            <p class="text-text-secondary">
+              Que escrevem o código e são a primeira e mais importante linha de
+              defesa. Este guia é um arsenal de práticas para escrever código
+              mais seguro e justificar a importância da segurança para a gestão.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-16">
+        <div class="glass-card p-8 md:p-12">
+          <h3 class="text-3xl font-bold text-center mb-10">
+            Nossa Filosofia (Os 4 Pilares)
+          </h3>
+          <div class="grid md:grid-cols-2 gap-8 text-center">
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-accent">
+                1. Pragmatismo Radical
+              </h4>
+              <p class="text-text-secondary">
+                Foco em ações de alto impacto com esforço mínimo. A pergunta
+                norteadora é: "O que pode ser feito em uma tarde que reduzirá o
+                risco pela metade?".
+              </p>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-accent">
+                2. Impacto Assimétrico
+              </h4>
+              <p class="text-text-secondary">
+                Priorização de defesas de baixo custo que neutralizam ataques de
+                alto impacto, como ativar a autenticação multifator (MFA) em
+                todas as contas críticas.
+              </p>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-accent">
+                3. Contexto é Tudo
+              </h4>
+              <p class="text-text-secondary">
+                As soluções aqui são para equipes que trabalham com Git, CI/CD e
+                nuvem, não com um data center próprio e um exército de
+                analistas.
+              </p>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-2 text-accent">
+                4. Educação Contínua
+              </h4>
+              <p class="text-text-secondary">
+                O objetivo final é transformar cada membro da equipe em um
+                sensor de segurança. A segurança é uma responsabilidade
+                compartilhada.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-16">
+        <h3 class="text-center text-3xl font-bold mb-10">Como Usar o Guia</h3>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="glass-card p-8">
+            <h4 class="font-bold text-xl mb-3">
+              Comece pelo Arsenal de Vulnerabilidades
+            </h4>
+            <p class="text-text-secondary">
+              Se a equipe precisa de uma vitória rápida ou quer focar nos riscos
+              mais imediatos, esta seção é o ponto de partida. Ela detalha o Top
+              5 de vulnerabilidades que mais afetam startups, com diagnósticos e
+              planos de ação imediatos.
+            </p>
+          </div>
+          <div class="glass-card p-8">
+            <h4 class="font-bold text-xl mb-3">
+              Evolua com o Guia de Maturidade
+            </h4>
+            <p class="text-text-secondary">
+              Quando a equipe estiver pronta para sair do modo reativo, o Guia
+              de Maturidade SSAMM oferece um roteiro. Ele permite uma
+              autoavaliação honesta para identificar o nível atual e traçar um
+              plano de melhoria contínua.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

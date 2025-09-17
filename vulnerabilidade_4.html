@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#4 Configuração Incorreta - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold">
+          Vulnerabilidade #4: Configuração Incorreta de Segurança (Cloud &
+          Infra)
+        </h2>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">O Risco</h3>
+          <p class="text-lg italic">
+            "A nuvem oferece agilidade e escala sem precedentes, mas também a
+            capacidade de cometer um erro de configuração que expõe seus dados
+            para o mundo inteiro com um único clique."
+          </p>
+          <p>
+            A complexidade dos ambientes de nuvem e a pressão para reduzir
+            custos frequentemente levam a configurações padrão inseguras ou a
+            otimizações que comprometem a segurança.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">
+            Cenário de Ataque (Bucket S3 Público)
+          </h3>
+          <p>
+            Uma equipe de desenvolvimento cria um bucket no Amazon S3 para
+            armazenar uploads de usuários, backups de banco de dados ou até
+            mesmo código-fonte. Durante a configuração, para "facilitar o
+            acesso", o bucket é marcado como "público". Como resultado, qualquer
+            pessoa na internet pode listar e baixar todos os arquivos contidos
+            nele, levando a um vazamento massivo de dados sensíveis. Este é um
+            dos erros de configuração mais comuns e devastadores em ambientes de
+            nuvem.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Defesas Pragmáticas</h3>
+          <h4 class="font-semibold text-lg mt-6">Checklists de Hardening:</h4>
+          <p>
+            Não reinvente a roda. Utilize checklists e benchmarks de segurança
+            desenvolvidos por especialistas. Os
+            <strong>CIS Benchmarks (Center for Internet Security)</strong> são o
+            padrão da indústria e oferecem guias detalhados para fortalecer a
+            configuração de praticamente todos os serviços em nuvem (AWS, GCP,
+            Azure), sistemas operacionais e softwares de servidor.
+          </p>
+
+          <h4 class="font-semibold text-lg mt-6">
+            Ferramentas de CSPM (Cloud Security Posture Management):
+          </h4>
+          <p>
+            Para uma abordagem automatizada, utilize ferramentas que escaneiam
+            continuamente sua configuração na nuvem em busca de desvios das
+            melhores práticas de segurança.
+          </p>
+          <ul class="space-y-4">
+            <li>
+              <strong>Prowler:</strong> É uma ferramenta open-source poderosa e
+              amplamente utilizada que executa centenas de checagens contra sua
+              conta AWS, GCP ou Azure, alinhadas com os CIS Benchmarks e outros
+              padrões, gerando relatórios detalhados sobre configurações
+              incorretas.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

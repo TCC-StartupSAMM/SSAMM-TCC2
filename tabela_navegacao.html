@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navegação - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Mapa do Guia</h2>
+
+      <section id="ssamm">
+        <h3 class="text-3xl font-bold mb-6 text-center">
+          Guia de Maturidade SSAMM
+        </h3>
+        <p
+          class="text-lg text-text-secondary mb-8 max-w-4xl mx-auto text-center"
+        >
+          A segurança de software é uma jornada de evolução contínua, não um
+          estado final. Para guiar as startups nesse caminho, este guia
+          apresenta o SSAMM (Startup Software Assurance Maturity Model). O
+          objetivo não é atingir a perfeição em todas as áreas — uma meta muitas
+          vezes irrealista — mas sim fornecer um mapa para que sua equipe possa
+          se localizar, entender suas fraquezas e planejar o próximo passo de
+          maior impacto. Maturidade em segurança é sobre progresso intencional e
+          sustentável. A tabela a seguir é um diagnóstico rápido para
+          identificar onde sua startup se encontra hoje.
+        </p>
+        <div class="glass-card p-8">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="border-b-2 border-gray-300">
+                <tr>
+                  <th class="p-4 text-xl font-bold">Função de Negócio</th>
+                  <th class="p-4 text-center">Nível 0: Caos</th>
+                  <th class="p-4 text-center">Nível 1: Conscientização</th>
+                  <th class="p-4 text-center">Nível 2: Padronização</th>
+                  <th class="p-4 text-center">Nível 3: Otimização</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="p-4 font-semibold text-lg">
+                    <a
+                      href="governanca.html"
+                      class="text-accent hover:underline"
+                      >Governança</a
+                    >
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Cada um por si.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Temos um "Campeão".
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Temos regras e checklists.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Medimos para melhorar.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-4 font-semibold text-lg">
+                    <a href="design.html" class="text-accent hover:underline"
+                      >Design</a
+                    >
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Sai codando.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Fazemos perguntas ("E se...?").
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Segurança é um requisito.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    O jeito fácil é o jeito seguro.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-4 font-semibold text-lg">
+                    <a
+                      href="implementacao.html"
+                      class="text-accent hover:underline"
+                      >Implementação</a
+                    >
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Funciona? Sobe.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Gerenciamos segredos e dependências.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Temos um pipeline seguro.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Usamos defesas proativas.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-4 font-semibold text-lg">
+                    <a
+                      href="verificacao.html"
+                      class="text-accent hover:underline"
+                      >Verificação</a
+                    >
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Testes manuais reativos.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Analisamos o código automaticamente.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Testamos a aplicação em execução.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Simulamos ataques reais.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-semibold text-lg">
+                    <a href="operacoes.html" class="text-accent hover:underline"
+                      >Operações</a
+                    >
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Sem visibilidade.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Geramos logs e protegemos servidores.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Monitoramos e criamos alertas.
+                  </td>
+                  <td class="p-4 text-text-secondary text-center">
+                    Temos um plano de resposta.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="arsenal" class="mt-20">
+        <h3 class="text-3xl font-bold mb-6 text-center">
+          Arsenal de Vulnerabilidades
+        </h3>
+        <p
+          class="text-lg text-text-secondary mb-8 max-w-4xl mx-auto text-center"
+        >
+          Enquanto o modelo de maturidade oferece um roteiro estratégico, a
+          realidade diária exige foco nos riscos mais imediatos. Esta seção é
+          uma curadoria direcionada, baseada nas dores e medos reais de
+          desenvolvedores de startups. A verdade é que os maiores perigos
+          raramente são ataques complexos; na maioria das vezes, são falhas de
+          "higiene cibernética" — como segredos expostos e dependências
+          desatualizadas — que persistem devido à pressão por velocidade. A boa
+          notícia é que suas soluções são conhecidas e automatizáveis. O foco
+          aqui é fornecer barreiras de proteção pragmáticas para neutralizar
+          esses riscos.
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <a
+            href="vulnerabilidade_1.html"
+            class="block glass-card p-6 text-center hover:scale-105 transition-transform"
+          >
+            <h4 class="text-xl font-bold text-accent">#1</h4>
+            <p class="font-semibold text-lg">
+              Gestão de Segredos e Credenciais
+            </p>
+          </a>
+          <a
+            href="vulnerabilidade_2.html"
+            class="block glass-card p-6 text-center hover:scale-105 transition-transform"
+          >
+            <h4 class="text-xl font-bold text-accent">#2</h4>
+            <p class="font-semibold text-lg">Dependências Vulneráveis</p>
+          </a>
+          <a
+            href="vulnerabilidade_3.html"
+            class="block glass-card p-6 text-center hover:scale-105 transition-transform"
+          >
+            <h4 class="text-xl font-bold text-accent">#3</h4>
+            <p class="font-semibold text-lg">Injeção (SQL Injection)</p>
+          </a>
+          <a
+            href="vulnerabilidade_4.html"
+            class="block glass-card p-6 text-center hover:scale-105 transition-transform"
+          >
+            <h4 class="text-xl font-bold text-accent">#4</h4>
+            <p class="font-semibold text-lg">
+              Configuração Incorreta de Segurança
+            </p>
+          </a>
+          <a
+            href="vulnerabilidade_5.html"
+            class="block glass-card p-6 text-center hover:scale-105 transition-transform md:col-start-2 lg:col-start-auto"
+          >
+            <h4 class="text-xl font-bold text-accent">#5</h4>
+            <p class="font-semibold text-lg">Quebra de Controle de Acesso</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>

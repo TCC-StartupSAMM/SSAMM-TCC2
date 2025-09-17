@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Governança - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html" class="nav-link">Mapa do Guia</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold mb-2">Função de Negócio: Governança</h2>
+        <p class="text-lg text-text-secondary">
+          Governança estabelece a estrutura, a responsabilidade e a estratégia
+          para a segurança, garantindo que os esforços sejam coordenados e
+          eficazes.
+        </p>
+
+        <div class="mt-12 space-y-8">
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 0: O Caos ("Cada um por si")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> Neste estágio, a segurança
+              não é um processo, mas um evento reativo, geralmente desencadeado
+              por um incidente ou falha. Não há propriedade definida sobre os
+              riscos de segurança; a responsabilidade é tão difusa que, na
+              prática, não pertence a ninguém. As decisões são tomadas com base
+              na velocidade de entrega, e a segurança, se considerada, é uma
+              reflexão tardia.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Correção de falhas de segurança apenas quando elas se tornam
+                problemas operacionais.
+              </li>
+              <li>
+                Discussões sobre segurança ocorrem de forma esporádica e sem um
+                plano de ação.
+              </li>
+              <li>
+                A responsabilidade pela segurança é assumida implicitamente pelo
+                desenvolvedor que escreveu o código, sem suporte ou direção.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <p class="text-text-secondary">
+              Não há benefícios de segurança neste nível. A única "vantagem"
+              percebida é a velocidade máxima de desenvolvimento inicial, que é
+              ilusória, pois ignora os juros compostos da dívida de segurança.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Não há uma pessoa formalmente
+                designada para liderar as iniciativas de segurança?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>A segurança só é discutida após a
+                ocorrência de um problema?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Não temos um documento central com
+                nossas diretrizes de segurança?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                O primeiro passo para sair do caos é designar um "Campeão de
+                Segurança". Não é um novo cargo, mas sim atribuir a um membro da
+                equipe técnica (como o Tech Lead) a responsabilidade de dedicar
+                uma pequena parte de seu tempo (10-20%) para ser o ponto focal
+                de segurança.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 1: A Conscientização ("Temos um Campeão")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A organização reconhece que
+              a segurança precisa de um responsável. Um indivíduo, geralmente um
+              líder técnico ou desenvolvedor sênior, é nomeado "Campeão de
+              Segurança" e se torna o ponto de referência para dúvidas e boas
+              práticas. A segurança começa a ser documentada de forma simples e
+              centralizada, saindo do conhecimento tácito para um registro
+              acessível a todos.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Um membro da equipe dedica de 10 a 20% do seu tempo para
+                pesquisar, orientar e promover a segurança.
+              </li>
+              <li>
+                Criação de uma página única em uma ferramenta de colaboração
+                (Notion, Google Docs) listando as boas práticas de segurança
+                acordadas pela equipe.
+              </li>
+              <li>
+                O Campeão de Segurança começa a responder perguntas e a revisar
+                decisões críticas sob a ótica da segurança.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Foco:</strong> Cria um ponto de contato claro para
+                questões de segurança.
+              </li>
+              <li>
+                <strong>Clareza:</strong> O início da documentação fornece uma
+                fonte única da verdade.
+              </li>
+              <li>
+                <strong>Responsabilidade:</strong> A responsabilidade deixa de
+                ser difusa e passa a ter um guardião.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Existe uma pessoa formalmente
+                reconhecida como o "Campeão de Segurança"?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Temos um documento central, mesmo que
+                simples, com nossas regras básicas de segurança?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Os membros da equipe sabem a quem
+                procurar quando têm uma dúvida sobre segurança?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Evolua da conscientização para a padronização. Crie um checklist
+                de segurança mínimo para ser usado antes do lançamento de novas
+                funcionalidades importantes e comece a realizar treinamentos
+                básicos e contínuos, utilizando recursos gratuitos como os da
+                OWASP.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 2: A Padronização ("Temos Regras")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> Neste nível, a segurança
+              deixa de ser um esforço individual do "campeão" e passa a ser
+              integrada aos processos da equipe. São estabelecidos rituais e
+              artefatos, como checklists de segurança para novas
+              funcionalidades, que garantem uma verificação mínima e
+              consistente. A conscientização é disseminada através de
+              treinamentos básicos, tornando a segurança uma responsabilidade
+              mais compartilhada.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Revisar um checklist de segurança padrão antes de lançar novas
+                features.
+              </li>
+              <li>
+                Conduzir sessões de treinamento de segurança curtas e regulares
+                para a equipe de desenvolvimento.
+              </li>
+              <li>
+                Utilizar materiais de fontes reconhecidas, como a OWASP, para
+                guiar os treinamentos.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Consistência:</strong> A segurança é aplicada de forma
+                mais uniforme em todo o produto.
+              </li>
+              <li>
+                <strong>Prevenção:</strong> Os checklists ajudam a identificar
+                problemas comuns antes que cheguem à produção.
+              </li>
+              <li>
+                <strong>Cultura:</strong> O treinamento regular reforça que a
+                segurança é responsabilidade de todos.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Temos um checklist de segurança que é
+                revisado para novas funcionalidades?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Realizamos treinamentos de segurança
+                para a equipe de desenvolvimento de forma periódica?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Os desenvolvedores se sentem mais
+                confiantes para identificar e discutir riscos de segurança?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Para otimizar a governança, comece a medir. Defina métricas de
+                segurança simples e acionáveis, como o "tempo médio para
+                corrigir vulnerabilidades críticas" ou a "porcentagem de
+                dependências com vulnerabilidades conhecidas". O objetivo é usar
+                dados para entender tendências e direcionar os esforços de
+                melhoria.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card p-8">
+            <h3 class="text-2xl font-bold text-accent">
+              Nível 3: A Otimização ("Medimos para Melhorar")
+            </h3>
+            <p>
+              <strong>Descrição Aprimorada:</strong> A segurança agora é
+              gerenciada com base em dados, não apenas em intuição. A equipe
+              define e acompanha métricas simples que refletem o estado da
+              segurança do produto e a eficácia dos processos. Essas métricas
+              ajudam a identificar tendências, justificar investimentos e focar
+              os esforços onde eles terão o maior impacto, transformando a
+              segurança de uma obrigação em uma vantagem competitiva.
+            </p>
+
+            <h4 class="font-semibold text-lg mt-6">Atividades Típicas:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                Acompanhar métricas como "Tempo médio para correção de
+                vulnerabilidades críticas".
+              </li>
+              <li>
+                Monitorar a "Porcentagem de dependências com vulnerabilidades de
+                alta gravidade".
+              </li>
+              <li>
+                Medir o "Número de segredos bloqueados no pré-commit" para
+                avaliar a eficácia das ferramentas.
+              </li>
+              <li>
+                Revisar essas métricas periodicamente para ajustar a estratégia
+                de segurança.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">Benefícios:</h4>
+            <ul class="list-disc list-inside text-text-secondary space-y-2">
+              <li>
+                <strong>Visibilidade:</strong> As métricas fornecem uma visão
+                clara do progresso e dos pontos fracos.
+              </li>
+              <li>
+                <strong>Eficiência:</strong> Permite que a equipe concentre
+                recursos nos problemas mais significativos.
+              </li>
+              <li>
+                <strong>Justificativa:</strong> Os dados ajudam a justificar a
+                necessidade de tempo e recursos para a segurança perante a
+                gestão.
+              </li>
+            </ul>
+
+            <h4 class="font-semibold text-lg mt-6">
+              Critérios de Autoavaliação (Checklist):
+            </h4>
+            <ul class="list-none text-text-secondary space-y-2">
+              <li>
+                <span class="mr-2">☐</span>Definimos pelo menos 2-3 métricas de
+                segurança que acompanhamos regularmente?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>Usamos essas métricas para tomar
+                decisões sobre onde focar nossos esforços de segurança?
+              </li>
+              <li>
+                <span class="mr-2">☐</span>As métricas são simples e acionáveis?
+              </li>
+            </ul>
+
+            <div class="recommendation-box">
+              <p>
+                <strong class="text-accent"
+                  >Recomendações para o Próximo Passo:</strong
+                >
+                Neste nível, a governança está madura. O foco passa a ser a
+                melhoria contínua, explorando novas métricas, automatizando a
+                coleta de dados e integrando os insights de segurança
+                diretamente nas decisões de negócio e planejamento de produto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>
