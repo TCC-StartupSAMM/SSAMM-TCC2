@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#6 Falhas Criptográficas - Guia de Cibersegurança</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-background-start to-background-end text-text-primary font-sans"
+  >
+    <header class="p-6 sticky top-0 bg-card-background/80 backdrop-blur z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">SSAMM</a>
+        <nav>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="tabela_navegacao.html#arsenal" class="nav-link">Arsenal de Vulnerabilidades</a>
+          <a href="tabela_navegacao.html#ssamm" class="nav-link">Guia de Maturidade SSAMM</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="prose max-w-none lg:prose-xl">
+        <h2 class="text-4xl font-bold">
+          Vulnerabilidade #6: Falhas Criptográficas (Cryptographic Failures)
+        </h2>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">O Risco</h3>
+          <p class="text-lg italic">
+            "Quando sua criptografia é tão forte quanto uma fechadura de papel - parece segura, mas se desfaz no primeiro teste."
+          </p>
+          <p>
+            Anteriormente conhecido como Exposição de Dados Sensíveis, 
+            o foco está nas falhas relacionadas à criptografia (ou à falta dela), que frequentemente levam à 
+            exposição de dados sensíveis. Esta vulnerabilidade abrange desde o uso de algoritmos obsoletos até 
+            a implementação inadequada de protocolos seguros.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Cenários de Ataque</h3>
+          
+          <div class="mb-6">
+            <h4 class="text-xl font-semibold text-accent mb-3">Cenário 1: Criptografia Automática de Banco</h4>
+            <p>
+              Um aplicativo criptografa números de cartão de crédito em um banco de dados usando criptografia 
+              automática. No entanto, esses dados são descriptografados automaticamente quando recuperados, 
+              permitindo que uma falha de injeção de SQL recupere números de cartão de crédito em texto não criptografado.
+            </p>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="text-xl font-semibold text-accent mb-3">Cenário 2: TLS Inadequado</h4>
+            <p>
+              Um site não usa ou impõe TLS para todas as páginas ou suporta criptografia fraca. Um invasor 
+              monitora o tráfego de rede (por exemplo, em uma rede sem fio insegura), reduz as conexões de 
+              HTTPS para HTTP, intercepta solicitações e rouba o cookie de sessão do usuário.
+            </p>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="text-xl font-semibold text-accent mb-3">Cenário 3: Hashes de Senha Fracos</h4>
+            <p>
+              O banco de dados de senhas usa hashes simples ou sem sal para armazenar as senhas. Uma falha 
+              no upload de arquivos permite que um invasor recupere o banco de dados de senhas. Todos os 
+              hashes sem sal podem ser expostos com uma tabela rainbow de hashes pré-calculados.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Pontos de Verificação</h3>
+          <p class="mb-6">
+            Para identificar falhas criptográficas, verifique os seguintes pontos críticos:
+          </p>
+          
+          <ul class="list-disc pl-6 space-y-3">
+            <li><strong>Dados em trânsito:</strong> Há dados transmitidos em texto não criptografado via HTTP, SMTP, FTP?</li>
+            <li><strong>Algoritmos obsoletos:</strong> Uso de MD5, SHA1, DES ou outros algoritmos considerados fracos?</li>
+            <li><strong>Gerenciamento de chaves:</strong> Chaves padrão, fracas, reutilizadas ou mal gerenciadas?</li>
+            <li><strong>Certificados:</strong> Validação adequada de certificados e cadeias de confiança?</li>
+            <li><strong>Vetores de inicialização:</strong> IVs reutilizados ou gerados de forma insegura?</li>
+            <li><strong>Funções de hash:</strong> Uso de funções não criptográficas quando necessárias criptográficas?</li>
+            <li><strong>Aleatoriedade:</strong> Geradores de números aleatórios inadequados para uso criptográfico?</li>
+          </ul>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Defesas Pragmáticas</h3>
+          
+          <div class="space-y-4">
+            <div>
+              <h4 class="text-lg font-semibold text-accent">Classificação de Dados</h4>
+              <p>
+                Identifique quais dados são sensíveis de acordo com leis de privacidade (GDPR), 
+                requisitos regulatórios (PCI DSS) ou necessidades comerciais.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold text-accent">Criptografia em Repouso</h4>
+              <p>
+                Certifique-se de criptografar todos os dados confidenciais armazenados usando 
+                algoritmos padrão atualizados e fortes (AES-256).
+              </p>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold text-accent">Criptografia em Trânsito</h4>
+              <p>
+                Use TLS 1.2+ com cifras de sigilo de encaminhamento (FS), priorização de cifras 
+                pelo servidor e parâmetros seguros. Implemente HSTS.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold text-accent">Hash de Senhas</h4>
+              <p>
+                Use funções de hash adaptativas e salgadas fortes como Argon2, scrypt, bcrypt ou 
+                PBKDF2 com fator de trabalho adequado.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-semibold text-accent">Gerenciamento de Chaves</h4>
+              <p>
+                Gere chaves criptograficamente aleatórias, armazene-as de forma segura e 
+                implemente rotação adequada de chaves.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 mt-8">
+          <h3 class="text-2xl font-bold text-accent">Checklist de Segurança</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left mt-4">
+              <thead class="border-b-2 border-gray-300">
+                <tr>
+                  <th class="p-3 font-semibold">Verificação</th>
+                  <th class="p-3 font-semibold">Ação Recomendada</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    Todas as conexões usam HTTPS/TLS 1.2+?
+                  </td>
+                  <td class="p-3">
+                    Configure redirecionamento HTTP → HTTPS e implemente HSTS.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    As senhas são hasheadas com algoritmos seguros?
+                  </td>
+                  <td class="p-3">
+                    Migre para bcrypt, Argon2 ou scrypt com salt adequado.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    Dados sensíveis são criptografados em repouso?
+                  </td>
+                  <td class="p-3">
+                    Implemente criptografia AES-256 para dados críticos.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    Certificados SSL/TLS são válidos e atualizados?
+                  </td>
+                  <td class="p-3">
+                    Configure renovação automática via Let's Encrypt ou similar.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    Algoritmos criptográficos obsoletos estão sendo usados?
+                  </td>
+                  <td class="p-3">
+                    Substitua MD5, SHA1, DES por SHA-256, AES-256, etc.
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3">
+                    Há gerenciamento adequado de chaves criptográficas?
+                  </td>
+                  <td class="p-3">
+                    Implemente rotação de chaves e armazenamento seguro (HSM/KMS).
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-3">
+                    Dados são tokenizados quando possível?
+                  </td>
+                  <td class="p-3">
+                    Use tokenização PCI DSS para dados de cartão de crédito.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-12 text-text-secondary">
+      <p>Universidade de Brasília - TCC - Lucas Frazão & Pedro Carvalho</p>
+    </footer>
+  </body>
+</html>
